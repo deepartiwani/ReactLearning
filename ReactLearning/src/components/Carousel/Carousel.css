@@ -1,0 +1,10 @@
+.containerwrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.imagewrapper {
+    height: 300px;
+    margin: 10px;
+    box-shadow: 0 2px 3px #eee;
+}
