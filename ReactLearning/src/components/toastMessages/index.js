@@ -1,5 +1,5 @@
 import React from 'react';
-import './ToastMessage.css';
+import './toastMessage.css';
 
 export const ToastMessage = (props) => {
     const closeToastMessage = () => {
