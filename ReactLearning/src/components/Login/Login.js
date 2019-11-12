@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
 import axios from 'axios';
+import { showToastmessage } from '../ToastMessages/ToastMessage';
 
 class LoginForm extends Component {
 
@@ -64,15 +65,18 @@ class LoginForm extends Component {
             }
             })
             .then((response) => {
-                this.handleToastmessage("Login Successful");
+                this.handleToastmessage("Login Successful!");
+                showToastmessage();
         
             }, (error) => {
                 console.log(error);
                 this.handleToastmessage("Login failed!");
+                showToastmessage();
             });
         }
         else {
-            this.handleToastmessage("Validation failed. Please input correct Username")
+            this.handleToastmessage("Validation failed. Please input correct Username!");
+            showToastmessage();
         }
     }
     

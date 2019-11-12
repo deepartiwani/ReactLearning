@@ -1,12 +1,10 @@
 .toastposition {
     position: absolute;
-    top: -40px;
+    top: 0;
     width: 100%;
     text-align: center;
     background-color: yellow;
     padding:10px 0;
-    /* bottom: 90%; */
-    animation: example 5s;
     display: block;
 }
 
@@ -15,10 +13,4 @@
     right: 0;
     cursor: pointer;
     margin-right: 5px;
-}
-
-@keyframes example {
-    0% {top: -20px}
-    50% {top: 10px}
-    100% {top: -40px}
 }
