@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from '../../components/Login/Login';
-import ToastMessage from '../../components/ToastMessages/ToastMessage';
+import { ToastMessage } from '../../components/ToastMessages/index';
 import './Login.css';
 
 class Login extends Component {

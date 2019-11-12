@@ -1,8 +1,8 @@
 import React from 'react';
 import './ToastMessage.css';
 
-function ToastMessage(props) {
-    function closeToastmessage() {
+export const ToastMessage = (props) => {
+    const closeToastmessage = () => {
         document.getElementById("toastmessageid").style.display = "none";
     }
     return(
@@ -12,8 +12,6 @@ function ToastMessage(props) {
     )
 }
 
-export const showToastmessage = () =>  {
+export const showToastMessage = () =>  {
     document.getElementById("toastmessageid").style.display = "block";
 }
-
-export default ToastMessage;
