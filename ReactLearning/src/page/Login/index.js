@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import LoginForm from '../../components/Login/Login';
-import { ToastMessage } from '../../components/ToastMessages/index';
+import { ToastMessage } from '../../components/toastMessages';
 import './Login.css';
 
 class Login extends Component {
     constructor() {
         super();
         this.state = {
-            showToastmessage : ''
+            showToastMessage : ''
         }
-        this.handleToastmessage = this.handleToastmessage.bind(this);   // this is for changing state variable of parent component to child component
     }
-    handleToastmessage = (value) => {
+    
+    handleToastMessage = (value) => {      // this is for changing state variable of parent component to child component
         this.setState({
-            showToastmessage: value
+            showToastMessage: value
         });
     }
     
@@ -21,9 +21,9 @@ class Login extends Component {
         return(
             <div class="logindivwrapper">
                 <div class="loginformdiv">
-                    <LoginForm value={this.state.showToastmessage} showToastmessage={this.handleToastmessage}/>
+                    <LoginForm value={this.state.showToastMessage} showToastMessage={this.handleToastMessage}/>
                     {
-                        this.state.showToastmessage ? <ToastMessage message={this.state.showToastmessage}/> : null
+                        this.state.showToastMessage ? <ToastMessage message={this.state.showToastMessage}/> : null
                     }
                 </div>
                 

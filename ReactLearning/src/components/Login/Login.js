@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Login.css';
 import axios from 'axios';
-import { showToastMessage } from '../ToastMessages';
+import { showToastMessage } from '../toastMessages';
 
 class LoginForm extends Component {
 
@@ -11,29 +11,31 @@ class LoginForm extends Component {
           inputUsername : '',
           inputPassword : ''
         }
-        this.handleToastmessage = this.handleToastmessage.bind(this);
     }
 
-    handleToastmessage = (value) => {
-        this.props.showToastmessage(value);
+    handleToastMessage = (value) => {
+        this.props.showToastMessage(value);
     }
 
     isUsernameValidationOK = (username,password) => {
-        if ((/\s/.test(username)) || (/\s/.test(password))) {
+        let regex =/\s/;
+        if ((regex.test(username)) || (regex.test(password))) {
           return true;
         }
         return false;
     }
     
     isEmailValidationOK = (username) => {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(username)) {
+        let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (regex.test(username)) {
           return true;
         }
         return false;
     }
     
     isPhoneNumberOK = (username) => {
-        if (/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(username)) {
+        let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        if (regex.test(username)) {
           return true;
         }
         return false;
@@ -65,17 +67,17 @@ class LoginForm extends Component {
             }
             })
             .then((response) => {
-                this.handleToastmessage("Login Successful!");
+                this.handleToastMessage("Login Successful!");
                 showToastMessage();
         
             }, (error) => {
                 console.log(error);
-                this.handleToastmessage("Login failed!");
+                this.handleToastMessage("Login failed!");
                 showToastMessage();
             });
         }
         else {
-            this.handleToastmessage("Validation failed. Please input correct Username!");
+            this.handleToastMessage("Validation failed. Please input correct Username!");
             showToastMessage();
         }
     }
