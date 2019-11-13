@@ -1,10 +1,25 @@
-.containerwrapper {
-    display: flex;
+.flexcontainer {
+    display:flex;
     flex-direction: row;
+    align-items: center;
+    width: 1190px;
+    margin: auto;
 }
 
-.imagewrapper {
-    height: 300px;
+.containerwrapper {
+    overflow: hidden;
+    width: 1072px;
+    position: relative;
+    height: 418px;
+}
+
+.container {
+    display: flex;
+   
+}
+
+.carouselarrow {
+    font-size: 24px;
     margin: 10px;
-    box-shadow: 0 2px 3px #eee;
+    cursor: pointer;
 }

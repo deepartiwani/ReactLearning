@@ -10,10 +10,15 @@ class Product extends Component {
         this.state = {
             products : ''
         };
-        this.callProductApi();
     }
 
-    callProductApi = () => {
+    static getDerivedStateFromProps(props, state) {
+        console.log("getDerivedStateFromProps - [Product Component]");
+        return "getDerivedStateFromProps - [Product Component]";
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount - [Product Component]");
         const baseurl = "https://dev-bepsy-api.objectedge.com";
         axios({
             method: 'post',
@@ -26,25 +31,39 @@ class Product extends Component {
             }
             })
             .then((response) => {
-                console.log(this);
                 this.setState({products : response.data.response.records});
         
             }, (error) => {
-                console.log(error);
-                
+                console.log(error);  
         });
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("shouldComponentUpdate - [Product Component]");
+        return true;
+    }
+
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log("getSnapshotBeforeUpdate - [Product Component]");
+        return null;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("componentDidUpdate - [Product Component]");
+    }
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount - [Product Component]");
+    }
+
     render() {
-        
+        console.log("render - [Product Component]");
         return(
             <div>
             {
                 this.state.products.length > 0 ?  <Carousel productsdata={this.state.products}/> : null
             }
             </div>
-            
-            
         )
     }
 }
