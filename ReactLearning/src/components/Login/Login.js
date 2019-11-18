@@ -58,8 +58,8 @@ class LoginForm extends Component {
             method: 'post',
             url: baseurl + '/oe_commerce_api/occ/v1/oauth/login',
             data: {
-                "username": this.state.inputUsername, //'trupti.kashid@objectedge.com',//
-                "password": this.state.inputPassword //'Objectedge$10'
+                "username": username, //'trupti.kashid@objectedge.com',//
+                "password": password //'Objectedge$10'
             },
             headers : { 
                 "Authorization":"Bearer YWRtaW46YWRtaW4=",
