@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from '../../components/Login/Login';
 import { ToastMessage } from '../../components/toastMessages';
-import './Login.css';
+import './Login.scss';
 
 class Login extends Component {
     constructor() {
