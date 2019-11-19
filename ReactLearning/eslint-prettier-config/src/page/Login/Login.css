@@ -1,0 +1,11 @@
+.loginpagebannerimg {
+    background-image: url('../../assets/loginbannerimg.jpg');
+    float: right;
+    height: 100vh;
+    width: 65%;
+}
+
+.loginformdiv {
+    float: left;
+    width: 35%;
+}
