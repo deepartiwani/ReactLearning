@@ -1,5 +1,5 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import './App.css';
 import LoginPage from './page/Login';
 import HomePage from './page/Home';
 

@@ -1,12 +1,14 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import React, { Component } from 'react';
-import './Product.css';
 import axios from 'axios';
 import Carousel from '../Carousel/index';
+import './Product.css';
 
 class Product extends Component {
 
     constructor() {
-        super() 
+        super(); 
         this.state = {
             products : ''
         };
@@ -58,13 +60,14 @@ class Product extends Component {
 
     render() {
         console.log("render - [Product Component]");
+        const { products } = this.state;
         return(
             <div>
             {
-                this.state.products.length > 0 ?  <Carousel productsdata={this.state.products}/> : null
+                products.length > 0 ?  <Carousel productsdata={products}/> : null
             }
             </div>
-        )
+        );
     }
 }
 

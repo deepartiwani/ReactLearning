@@ -1,6 +1,10 @@
+/* eslint-disable react/no-unused-state */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-useless-escape */
 import React, { Component } from 'react';
-import './Login.css';
 import axios from 'axios';
+import './Login.css';
 import { showToastMessage } from '../toastMessages';
 
 class LoginForm extends Component {
@@ -10,15 +14,16 @@ class LoginForm extends Component {
         this.state = {
           inputUsername : '',
           inputPassword : ''
-        }
+        };
     }
 
     handleToastMessage = (value) => {
-        this.props.showToastMessage(value);
+        const { showtoastmessage } = this.props;
+        showtoastmessage(value);
     }
 
     isUsernameValidationOK = (username,password) => {
-        let regex =/\s/;
+        const regex =/\s/;
         if ((regex.test(username)) || (regex.test(password))) {
           return true;
         }
@@ -26,7 +31,7 @@ class LoginForm extends Component {
     }
     
     isEmailValidationOK = (username) => {
-        let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (regex.test(username)) {
           return true;
         }
@@ -34,7 +39,7 @@ class LoginForm extends Component {
     }
     
     isPhoneNumberOK = (username) => {
-        let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+        const regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
         if (regex.test(username)) {
           return true;
         }
@@ -49,17 +54,16 @@ class LoginForm extends Component {
     }
     
     clickHandler = () => {
-        const username = this.state.inputUsername, 
-              password = this.state.inputPassword,
-              baseurl = "https://dev-bepsy-api.objectedge.com";
+        const { username , password  } = this.state;
+        const baseurl = "https://dev-bepsy-api.objectedge.com";
 
         if (this.validationSuccessful(username,password)) {
             axios({
             method: 'post',
             url: baseurl + '/oe_commerce_api/occ/v1/oauth/login',
             data: {
-                "username": username, //'trupti.kashid@objectedge.com',//
-                "password": password //'Objectedge$10'
+                "username": username,
+                "password": password
             },
             headers : { 
                 "Authorization":"Bearer YWRtaW46YWRtaW4=",
@@ -85,26 +89,26 @@ class LoginForm extends Component {
     inputChangeHandler = (event) => {
         this.setState({
             [event.target.name] : event.target.value          // updating state variables where [event.target.name] is name attribute of <input> tag 
-        })
+        });
     }
 
     render() {
         return(
             <div className="modalcontainer">
-                <div class="modalwrapper">
-                    <h2 class="wrapperdiv">Log In</h2>
-                    <div class="wrapperdiv">
-                        <div class="labeltext">Username : </div>
-                        <input class="inputbox" type= "text" name="inputUsername" required onChange={this.inputChangeHandler}></input>
+                <div className="modalwrapper">
+                    <h2 className="wrapperdiv">Log In</h2>
+                    <div className="wrapperdiv">
+                        <div className="labeltext">Username : </div>
+                        <input className="inputbox" type= "text" name="inputUsername" required onChange={this.inputChangeHandler} />
                     </div>
-                    <div class="wrapperdiv">
-                        <div class="labeltext">Password : </div>
-                        <input class="inputbox" type= "password" name="inputPassword" required onChange={this.inputChangeHandler}></input>
+                    <div className="wrapperdiv">
+                        <div className="labeltext">Password : </div>
+                        <input className="inputbox" type= "password" name="inputPassword" required onChange={this.inputChangeHandler} />
                     </div>
-                    <div class="wrapperdiv"><button class="submitbutton" onClick={this.clickHandler}>Submit</button></div>
+                    <div className="wrapperdiv"><button className="submitbutton" onClick={this.clickHandler}>Submit</button></div>
                 </div>
             </div>
-        )
+        );
     }
 }
 

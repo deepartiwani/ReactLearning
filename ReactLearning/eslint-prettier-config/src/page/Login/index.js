@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import LoginForm from '../../components/Login/Login';
 import { ToastMessage } from '../../components/toastMessages';
@@ -8,7 +9,7 @@ class Login extends Component {
         super();
         this.state = {
             showToastMessage : ''
-        }
+        };
     }
     
     handleToastMessage = (value) => {      // this is for changing state variable of parent component to child component
@@ -17,17 +18,18 @@ class Login extends Component {
         });
     }
     
-    render() {  
+    render() { 
+        const { showtoastmessage } = this.state; 
         return(
-            <div class="logindivwrapper">
-                <div class="loginformdiv">
-                    <LoginForm value={this.state.showToastMessage} showToastMessage={this.handleToastMessage}/>
+            <div className="logindivwrapper">
+                <div className="loginformdiv">
+                    <LoginForm value={showtoastmessage} showToastMessage={this.handleToastMessage}/>
                     {
-                        this.state.showToastMessage ? <ToastMessage message={this.state.showToastMessage}/> : null
+                        showtoastmessage ? <ToastMessage message={showtoastmessage}/> : null
                     }
                 </div>
                 
-                <div class="loginpagebannerimg"></div>
+                <div className="loginpagebannerimg" />
             </div>
         );
     }

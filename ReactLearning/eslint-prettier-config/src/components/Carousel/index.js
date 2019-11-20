@@ -1,3 +1,9 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable react/sort-comp */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import React,{ Component } from 'react';
 import CarouselProducts from '../carouselProducts';
 import './Carousel.css';
@@ -6,7 +12,7 @@ class Carousel extends Component {
     constructor(props) {
         super(props);
         console.log("constructor - [Carousel Component]");
-        this.state = {shiftCount : 0}    // State variable maintained to disable the next and prev arrows
+        this.state = {shiftCount : 0};    // State variable maintained to disable the next and prev arrows
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -49,28 +55,29 @@ class Carousel extends Component {
     }
 
     iterateSingleProduct = this.props.productsdata.map(element =>{
-        let imageUrl = element.compositeProducts[0].EProductMedia.smallURI,
-            skuname = element.sfdcName, 
-            partnumber = element.SKU,
-            price = element.compositeProducts[0].priceEntry.listPrice,
-            sfid = element.sfid;
+        const imageUrl = element.compositeProducts[0].EProductMedia.smallURI;
+            const skuname = element.sfdcName; 
+            const partnumber = element.SKU;
+            const price = element.compositeProducts[0].priceEntry.listPrice;
+            const {sfid} = element;
         return (
             <CarouselProducts imageUrl={imageUrl} skuname={skuname} partnumber={partnumber} price={price} key={sfid}/>
-        )
-    }) 
+        );
+    })
+ 
     render() {
         console.log("render - [Carousel Component]");
         return(
-            <div class="flexcontainer">
-                <button class="carouselbtn" onClick={this.prevImageArrow} disabled={this.state.shiftCount== 0}><i class="fa fa-angle-left carouselarrow" aria-hidden="true"></i></button>
-                <div class="containerwrapper">
-                    <div class="container" ref={(imageref) => {this.listcard = imageref;}}>
+            <div className="flexcontainer">
+                <button className="carouselbtn" onClick={this.prevImageArrow} disabled={this.state.shiftCount=== 0}><i className="fa fa-angle-left carouselarrow" aria-hidden="true" /></button>
+                <div className="containerwrapper">
+                    <div className="container" ref={(imageref) => {this.listcard = imageref;}}>
                         {this.iterateSingleProduct}
                     </div>
                 </div>
-                <button class="carouselbtn" onClick={this.nextImageArrow} disabled={this.state.shiftCount== -1608}><i class="fa fa-angle-right carouselarrow" aria-hidden="true"></i></button>
+                <button className="carouselbtn" onClick={this.nextImageArrow} disabled={this.state.shiftCount=== -1608}><i className="fa fa-angle-right carouselarrow" aria-hidden="true" /></button>
             </div>
-        )
+        );
     }
 }
 
