@@ -23,7 +23,7 @@ class Login extends Component {
         <div className="loginformdiv">
           <LoginForm value={this.state.showToastMessage} showToastMessage={this.handleToastMessage} />
           {
-              this.state.showToastMessage ? <ToastMessage message={this.state.showToastMessage} /> : null
+            this.state.showToastMessage ? <ToastMessage message={this.state.showToastMessage} /> : null
           }
         </div>
 
