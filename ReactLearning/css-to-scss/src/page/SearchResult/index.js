@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import SearchProducts from '../../components/searchProducts';
+import ProductListing from '../../components/productListing';
 import './Search.scss';
+import HOC from '../../hoc/SearchBox';
 
 class PLP extends Component {
   constructor(props) {
@@ -33,10 +34,11 @@ class PLP extends Component {
   }
 
   render() {
+    const higherOrderComponentWithSearch = HOC(ProductListing, this.state.productsarray);
     return (
-      <div className="productContainer">
-        { this.state.productsarray.length > 0 ? <SearchProducts products={this.state.productsarray} /> : null }
-      </div>
+      <>
+        { this.state.productsarray.length > 0 ? higherOrderComponentWithSearch : <h2>Loading...</h2> }
+      </>
     );
   }
 }

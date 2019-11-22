@@ -9,7 +9,6 @@ const productListing = (props) => props.products.map((element) => {
   const { sfid } = element;
   return (
     <CarouselProducts imageUrl={imageUrl} skuname={skuname} partnumber={partnumber} price={price} key={sfid} />
-
   );
 });
 

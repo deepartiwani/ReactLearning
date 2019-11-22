@@ -35,7 +35,7 @@ class PLP extends Component {
   render() {
     return (
       <div className="productContainer">
-        { this.state.productsarray.length > 0 ? <ProductListing products={this.state.productsarray} /> : null }
+        { this.state.productsarray.length > 0 ? <ProductListing products={this.state.productsarray} /> : <h2>Loading...</h2> }
       </div>
     );
   }
