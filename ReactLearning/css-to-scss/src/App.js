@@ -4,7 +4,7 @@ import LoginPage from './page/Login';
 import HomePage from './page/Home';
 import Navbar from './components/navbar';
 import PLPPage from './page/PLP';
-import SearchPage from './page/Search';
+import SearchPage from './page/SearchResult';
 
 class App extends Component {
   render() {
