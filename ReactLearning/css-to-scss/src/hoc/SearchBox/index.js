@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SearchBox.scss';
 
-const HOC = (SearchResult, data) => {
+const HOC = (SearchResult, productsdata) => {
   class HOC extends Component {
     constructor() {
       super();
@@ -28,7 +28,7 @@ const HOC = (SearchResult, data) => {
             <input className="inputbox" type="text" name="searchText" required onChange={this.inputChangeHandler} placeholder="Search..." />
           </div>
           <div className="productContainer">
-            <SearchResult products={this.filterSearchValue(data)} />
+            <SearchResult products={this.filterSearchValue(productsdata)} />
           </div>
         </>
       );

@@ -8,6 +8,17 @@
             color: #ffffff;
             text-decoration: none;
             float: right;
+            cursor: pointer;
+        }
+    }
+    .userdetails {
+        float: right;
+        color: #ffffff;
+        button {
+            background: transparent;
+            color: #ffffff;
+            cursor: pointer;
+            border: 0;
         }
     }
 }
