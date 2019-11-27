@@ -57,7 +57,6 @@ class LoginForm extends Component {
       },
     })
       .then((response) => {
-        console.log(response);
         this.handleToastMessage('Login Successful!');
         showToastMessage();
         this.getProfileDetails(response, baseurl);
