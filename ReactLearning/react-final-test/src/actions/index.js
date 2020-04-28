@@ -1,6 +1,6 @@
-export const getAccessToken = (username,password) => ({
+export const getAccessToken = (username,password,history) => ({
     type: 'SEND_LOGIN_REQUEST',
-    payload: {username, password}
+    payload: {username, password, history}
 });
 
 export const getSearchListing = () => ({

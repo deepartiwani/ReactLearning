@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
 import { getAccessToken } from '../../actions';
-import { Redirect} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,18 +50,13 @@ const Login = (props) => {
 
   const [username , setUsername] = useState();
   const [password , setPassword] = useState();
-
-  const onUsernameChangeHandler = (event) => {
-      setUsername(event.target.value);
-  }
-
-  const onPasswordChangeHandler = (event) => {
-      setPassword(event.target.value);
-  }
+  
+  const history = useHistory();
 
   const loginAPICall = () => {
-    props.loginAPICall(username, password);
+    props.loginAPICall(username, password, history);
   }
+
 
   // const { accessToken } = useSelector(state => state);
   
@@ -89,7 +84,7 @@ const Login = (props) => {
                 name="username"
                 autoComplete="email"
                 autoFocus
-                onChange={onUsernameChangeHandler}
+                onChange={(event) => {setUsername(event.target.value)}}
             />
             <TextField
                 variant="outlined"
@@ -101,7 +96,7 @@ const Login = (props) => {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                onChange={onPasswordChangeHandler}
+                onChange={(event) => {setPassword(event.target.value)}}
             />
             <Button
                 fullWidth
@@ -134,8 +129,8 @@ const Login = (props) => {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    loginAPICall: (username,password) => {
-      return dispatch(getAccessToken(username,password))
+    loginAPICall: (username,password,history) => {
+      return dispatch(getAccessToken(username,password,history))
     }
   };
 }

@@ -16,7 +16,7 @@ export function getSearchListing() {
         term: '*',
         sortBy: 'new asc',
         page: 0,
-        recordsPerPage: 20,
+        recordsPerPage: 100,
         heirarchical: [],
         multiselect: [],
         singleselect: [],
