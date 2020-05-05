@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './components/Login';
 import Search from './components/Search';
+import ProductDetails from './components/ProductDetails';
 import './App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -10,8 +11,8 @@ function App() {
       <BrowserRouter>
         <div>
           <Route path="/" component={Login} exact />
-          {/* <Route path="/pdp" component={PDPPage} /> */}
           <Route path="/search" component={Search} exact />
+          <Route path="/product/:id" component={ProductDetails} exact />
         </div>
       </BrowserRouter>
     </div>

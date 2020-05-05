@@ -5,7 +5,6 @@ function* workerGetSearchListingSaga() {
     try {
       const response = yield call(getSearchListing);
       const productsData = response.data.response;
-      console.log("productsData ==== ",productsData);
         if (productsData) {
             yield put({ type: "PRODUCTS_SUCCESS", productsData });
         }

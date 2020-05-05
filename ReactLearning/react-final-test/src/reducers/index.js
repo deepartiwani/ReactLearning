@@ -1,11 +1,11 @@
 const initialState = {
     credentails: null,
     productsData: null,
-    accessToken: null
+    accessToken: null,
+    productDetails: null
 }
 
 const reducer = (state = {initialState}, action) => {
-    console.log("actions === ",action)
     switch (action.type) {
        case 'SEND_LOGIN_REQUEST':
           return { ...state, credentials: action.payload };
@@ -15,6 +15,8 @@ const reducer = (state = {initialState}, action) => {
             return { ...state };
        case 'PRODUCTS_SUCCESS':
             return { ...state, productsData: action.productsData };
+       case 'PRODUCTS_DETAILS_SUCCESS':
+            return { ...state, productDetails: action.productDetails };
        default:
           return state;
      }
